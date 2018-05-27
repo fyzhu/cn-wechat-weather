@@ -26,12 +26,36 @@
 
 <scroll-view scroll-x>
   <view class='forecast-list'>
-    <view class="forecast-item" wx:for="{{hourlyWeather}}">
+    <view class="forecast-item" wx:for="{{hourlyWeather}}" wx:key="time">
       <view class= 'forecast-time'>{{item.time}}</view>
       <image class= 'forecast-weather'
              src='{{item.iconPath}}'>
       </image>
       <view class= 'forecast-temp'>{{item.temp}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="timetips">
+  <image class="timetips-icon" src="/images/time-icon.png"></image>
+  <view class="timetips-text">未来3天天气预测</view>
+ </view>
+
+<scroll-view scroll-x>
+  <view class='forecast-list'>
+    <view class="forecast-item2" wx:for="{{weekWeather}}" wx:key="date">
+      <view class= 'forecast-time'>{{item.day}}</view>
+      <view class= 'forecast-date2'>{{item.date}}</view>
+      <view class= 'forecast-day-txt'>{{item.day_txt}}</view>
+      <image class= 'forecast-weather-up'
+             src='{{item.iconPath}}'>
+      </image>
+      <view class= 'forecast-temp2'>{{item.temp_max}}</view>
+      <view class= 'forecast-temp2'>{{item.temp_min}}</view>
+      <image class= 'forecast-weather-down'
+             src='{{item.iconPath}}'>
+      </image>
+      <view class= 'forecast-night-txt'>{{item.night_txt}}</view>
     </view>
   </view>
 </scroll-view>
